@@ -17235,22 +17235,6 @@ jQuery.noConflict();
                                                     </div>
                     </div>
 
-                    <!-- #13 12-Step Revenue & Growth Done -->
-                    <div id="revenue_growth_done_milestone" class="journey__container-progress-item " style="position: relative;">
-                        <div>
-                                                            <div class="progress-circle"><span class="bg-primary">13</span></div>
-                                <div class="progress-line display-none-mobile">
-                                    <div class="progress-line-primary delay-4"></div>
-                                </div>
-                                                    </div>
-                        <div style="position: relative;">
-                                                            <span class="triangle triangle-primary"></span>
-                                <div class="progress-description bg-primary text-white">
-                                    <span>12-Step Revenue &amp; Growth</span>
-                                </div>
-                                                    </div>
-                    </div>
-
                     <!-- #14 4-Step Clinical Optimization -->
                     <div id="clinical_optimization_done_milestone" class="journey__container-progress-item " style="position: relative;">
                         <div>
@@ -17265,6 +17249,22 @@ jQuery.noConflict();
                                     <span>4-Step Clinical Optimization</span>
                                 </div>
                         </div>
+                    </div>
+
+                    <!-- #13 12-Step Revenue & Growth Done -->
+                    <div id="revenue_growth_done_milestone" class="journey__container-progress-item " style="position: relative;">
+                        <div>
+                                                            <div class="progress-circle"><span class="bg-primary">13</span></div>
+                                <div class="progress-line display-none-mobile">
+                                    <div class="progress-line-primary delay-4"></div>
+                                </div>
+                                                    </div>
+                        <div style="position: relative;">
+                                                            <span class="triangle triangle-primary"></span>
+                                <div class="progress-description bg-primary text-white">
+                                    <span>12-Step Revenue &amp; Growth</span>
+                                </div>
+                                                    </div>
                     </div>
 
                     <!-- #15 Pabau Academy -->
@@ -21291,6 +21291,16 @@ If you don't have a Healthcode account, please <a href="https://portal.pabau.com
         </div>
     </div>
 </div>
+<script id="p2g-clinical-before-revenue">
+/* 4-Step Clinical Optimization comes before 12-Step Revenue & Growth in the checklist */
+(function () {
+  var rev = document.getElementById('revenue-growth-optimization'), cli = document.getElementById('clinical-optimization');
+  if (!rev || !cli) return;
+  var cliSteps = document.getElementById('clinical-optimization-steps');
+  var move = [cli]; if (cliSteps && cliSteps.parentNode === cli.parentNode) move.push(cliSteps);
+  move.forEach(function (n) { rev.parentNode.insertBefore(n, rev); });
+})();
+</script>
 <script>
     (function() {
         var wrap = document.querySelector('.celebrate-going-live-wrap');
